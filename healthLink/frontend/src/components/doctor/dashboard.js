@@ -4,6 +4,11 @@ import { Route, Routes,Link } from 'react-router-dom';
 import avatar from '../../assets/doctors/doctor1.jpg';
 import { SideNavigation, TopBar } from '../sideComps/dashBoardComps';
 import { dashboardDoctorData } from '../_dashBoardData';
+import DoctorHome from './DoctorHome';
+import MyAppointments from './MyAppointments';
+import axios from 'axios';
+import { useLocation } from 'react-router-dom';
+
 
 // import Home from './Home';
 // import AddDoctors from './AddDoctors';
@@ -14,6 +19,29 @@ import { dashboardDoctorData } from '../_dashBoardData';
 
 
 export default function DoctorDashboard() {
+
+    const location = useLocation();
+    const doctor_id = localStorage.getItem('doctorid') ? localStorage.getItem('doctorid') : '';
+    const [patient, setPatient]= useState([]);
+
+
+
+    useEffect(() => {
+         if (doctor_id) {
+            axios.post('http://localhost:3001/appointment/patients', {doctor_id:doctor_id}).then(response => {
+                const responseStatus = response.status;
+
+                if (responseStatus === 200 | responseStatus === 201) {
+                    setPatient(response.data['results']);
+                }
+            }).catch(error => { 
+                console.log(error);
+            });
+        } 
+    }, [doctor_id, patient])
+
+
+
 
 
     const addJs = () => {
@@ -68,12 +96,12 @@ export default function DoctorDashboard() {
 
                 <section id="content">
                     <TopBar avatar={avatar} />
-                    {/* <Routes>
-                        <Route path="/" element={<Home/>} />
-                        <Route path="/add-doctors" element={<AddDoctors/>} />
+                    <Routes>
+                        <Route path="/" element={<DoctorHome totalAppoint={patient.length} />} />
+                        <Route path="/my-appointments" element={<MyAppointments patientData={patient} />} />
                       
                        
-                    </Routes> */}
+                    </Routes>
 
                   
 

@@ -1,5 +1,6 @@
 const express = require('express');
 const appointmentController = require('../controllers/appointment.controller');
+const doctorAppointController = require('../controllers/doctorAppointment.controller');
 
 const checkAuth = require('../middleware/check-auth');
 
@@ -10,5 +11,7 @@ router.post('/place',checkAuth.checkAuth,appointmentController.placeAppointment)
 router.get('/',checkAuth.checkAuth,appointmentController.getAppointments);
 router.delete('/',checkAuth.checkAuth,appointmentController.deleteAppointment);
 
+
+router.post('/patients' ,doctorAppointController.getDoctorAppointments);
 
 module.exports = router;

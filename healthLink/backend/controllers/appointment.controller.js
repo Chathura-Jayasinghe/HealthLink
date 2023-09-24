@@ -156,7 +156,6 @@ function getAppointments(req,res){
                 return res.status(200).json({ results: results });
             })
             .catch((error) => {
-              
                 return res.status(250).json({ message: "An error occurred" });
             });
         }

@@ -191,7 +191,8 @@ function doctorLogin(req, res) {
                             return res.status(200).json({
                                 message: "Authentication successful!",
                                 token: token,
-                                role: results[0].role
+                                role: results[0].role,
+                                doctor_id: results[0].id
                             });
                         });
                     }

@@ -91,7 +91,7 @@ export default function Home(props) {
                             </tr>
                         </thead>
                         <tbody>
-                            {doctorData&& doctorData.map((doctor, index) => {
+                            {doctorData && doctorData.map((doctor, index) => {
                                 return (
                                     <tr key={index}>
                                         <td>{index+1}</td>

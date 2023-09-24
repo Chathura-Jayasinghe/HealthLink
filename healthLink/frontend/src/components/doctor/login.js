@@ -15,6 +15,7 @@ export default function DoctorLogin() {
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
     const [showAlertLogin, setShowAlertLogin] = useState(null);
+    const [doctorId, setDoctorId] = useState(null);
 
     const handelLogin = () => {
         if (email && password) {
@@ -24,7 +25,9 @@ export default function DoctorLogin() {
                 if (responseStatus === 200 | responseStatus === 201) {
                     localStorage.setItem('token', response.data['token']);
                     localStorage.setItem('role', response.data['role']);
+                    localStorage.setItem(localStorage.getItem('role')+'id', response.data['doctor_id']);
                     navigate('/doctor');
+                    
                     Toast.fire({ icon: 'success', title: 'You have successfully logged in!' });
                 } else {
                     setShowAlertLogin(response.data['message'])
