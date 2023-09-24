@@ -43,5 +43,5 @@ function getDoctorAppointments(req, res) {
 
 
 module.exports = {
-    getDoctorAppointments: getDoctorAppointments
+    getDoctorAppointments: getDoctorAppointments,
 } 

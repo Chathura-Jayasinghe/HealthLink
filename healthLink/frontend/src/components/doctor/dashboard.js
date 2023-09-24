@@ -8,6 +8,8 @@ import DoctorHome from './DoctorHome';
 import MyAppointments from './MyAppointments';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
+import AddReport from './AddReport';
+
 
 
 // import Home from './Home';
@@ -99,6 +101,7 @@ export default function DoctorDashboard() {
                     <Routes>
                         <Route path="/" element={<DoctorHome totalAppoint={patient.length} />} />
                         <Route path="/my-appointments" element={<MyAppointments patientData={patient} />} />
+                        <Route path="/add-report" element={<AddReport /> } />
                       
                        
                     </Routes>

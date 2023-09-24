@@ -31,6 +31,7 @@ export default function MyAppointments() {
 
 
 
+
     return (
         <>
             <div className="my-5 px-4">
@@ -88,7 +89,7 @@ export default function MyAppointments() {
                                                             setIsComponentChanged(!isComponentChanged)
                                                         }, "Error! Check Your Connection");
                                                 }}
-                                                whileHover={{ scale: 1.2, cursor: 'pointer' }} transition={{ delay: 0, duration: 0.05 }} className="status cancelled">&nbsp;&nbsp;Calcel&nbsp;&nbsp;</motion.p></td>
+                                                whileHover={{ scale: 1.2, cursor: 'pointer' }} transition={{ delay: 0, duration: 0.05 }} className="status cancelled">&nbsp;&nbsp;Cancel&nbsp;&nbsp;</motion.p></td>
                                         </motion.tr>
                                     )
                                 })}

@@ -162,7 +162,6 @@ function NavBar(props) {
                 if (responseStatus === 200 | responseStatus === 201) {
                     localStorage.setItem('token', response.data['token']);
 
-
                     navigate('/');
                     setLoginShow(false);
 

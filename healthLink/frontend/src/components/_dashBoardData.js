@@ -9,6 +9,7 @@ export const dashboardAdminData = [
 export const dashboardDoctorData = [
     { name: "Dashboard", icon: <i className='bx bxs-dashboard' ></i>, active: true,to:'/doctor' },
     { name: "My Apointments", icon: <i className='bx bxs-user-plus'></i>, active: false,to:'/doctor/my-appointments' },
+    { name: "Add a Report", icon: <i className='bx bxs-user-plus'></i>, active: false,to:'/doctor/add-report' },
     { name: "Scan MRI", icon: <i className='bx bxs-user-plus'></i>, active: false,to:'/doctor/mri' },
     // { name: "Scan MRI", icon: <i className='bx bxs-user-plus'></i>, active: false,to:'/admin/mri' },
     { name: "Analytics", icon:  <i className='bx bxs-doughnut-chart' ></i>, active: false,to:"/doctor/analytics"},
