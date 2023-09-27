@@ -100,6 +100,9 @@ export default function AddReport(props) {
                                 <div className="col col-md-6">
                                     <TextField className='darkThemeText' required onChange={handleChange} name="Disease" value={doctorInfo.email} label="Disease" variant="outlined" fullWidth />
                                 </div>
+                                <div className="col col-md-6">
+                                    <TextField className='darkThemeText' required onChange={handleChange} name="Age" value={doctorInfo.email} label="Age" variant="outlined" fullWidth />
+                                </div>
 
                                 <div className='col col-md-6'>
                                     <FormControl component="fieldset">
@@ -179,27 +182,27 @@ export default function AddReport(props) {
 
 const doctorSpecializations = [
     { label: 'Common' },
-    { label: 'Brain-Cerebellum' },
-    { label: 'Brain-Cerebrum' },
-    { label: 'Eye-Retina' },
-    { label: 'Eye-Cornea' },
-    { label: 'Eye-Lens' },
-    { label: 'Heart-Aorta' },
-    { label: 'Heart-Valves' },
-    { label: 'Heart-Chambers' },
-    { label: 'Kidney' },
-    { label: 'Liver' },
-    { label: 'Bone' },
-    { label: 'Skin' },
+    { label: 'Neurologist' },
+    { label: 'Cardiologist' },
+    { label: 'Gastroenterologist' },
+    { label: 'Dermatologist' },
+    { label: 'Urologist' },
+    { label: 'Orthopaedist' },
+    { label: 'Oncologist' },
+    { label: 'Ophthalmology' },
+    { label: 'Anesthesiologist' },
+    { label: 'Surgeon' },
+    { label: 'Psychiatrist' },
+    { label: 'Cardiologist' },
     { label: 'Stomach' },
-    { label: 'Intestine' },
-    { label: 'Ear' },
-    { label: 'Nose' },
-    { label: 'Throat' },
-    { label: 'Spine' },
-    { label: 'Muscle' },
-    { label: 'Joint' },
-    { label: 'Bladder' },
-    { label: 'Pancreas' },
+    { label: 'Radiologist' },
+    { label: 'Family medicine' },
+    { label: 'Pediatrics' },
+    { label: 'Pulmonologist' },
+    { label: 'Endocrinologist' },
+    // { label: 'Muscle' },
+    // { label: 'Joint' },
+    // { label: 'Bladder' },
+    // { label: 'Pancreas' },
     // Add more body parts and their combined subparts as needed
 ];
