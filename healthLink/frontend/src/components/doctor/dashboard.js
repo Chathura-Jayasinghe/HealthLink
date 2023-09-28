@@ -99,11 +99,7 @@ export default function DoctorDashboard() {
                         <Route path="/" element={<DoctorHome totalAppoint={patient.length} />} />
                         <Route path="/my-appointments" element={<MyAppointments patientData={patient} />} />
                         <Route path="/add-report" element={<AddReport /> } />
-                      
-                       
                     </Routes>
-
-                  
 
                 </section>
             </div>
