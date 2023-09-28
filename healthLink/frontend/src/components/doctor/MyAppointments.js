@@ -71,10 +71,10 @@ export default function MyAppointments(props) {
                                         <Link to='/doctor/add-report'
                     
                                             state= {{
-                                            username: patient.doctor_id,
-                                            doctor_id: patient.doctor_id,
-                                            user_id: patient.user_id,
-                                            appointment_id: patient.id,
+                                                username: patient.user.name,
+                                                doctor_id: patient.doctor_id,
+                                                user_id: patient.user_id,
+                                                appointment_id: patient.id,
                                             }} >
                                             <motion.p
                                                     // onClick={() => {

@@ -9,9 +9,6 @@ import MyAppointments from './MyAppointments';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 import AddReport from './AddReport';
-
-
-
 // import Home from './Home';
 // import AddDoctors from './AddDoctors';
 

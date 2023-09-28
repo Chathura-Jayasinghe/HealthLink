@@ -1,11 +1,11 @@
 import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
 import { useEffect, useState } from 'react';
 import { FormControl, Radio, RadioGroup, FormControlLabel, FormLabel  } from '@mui/material';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useLocation } from 'react-router-dom';
-
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 import * as reqSend from "../../global/reqSender";
 import Swal from "sweetalert2";
@@ -14,59 +14,85 @@ import Swal from "sweetalert2";
 export default function AddReport(props) {
     const [rating, setRating] = useState(''); // Initialize with an empty string
     const location = useLocation();
-    console.log(location);
+    const locationStateFromAppoint = location.state ? location.state : '';
+    const [doctorName, setDoctorName] = useState(null);
+    const navigate=useNavigate();
+
+    const Toast = Swal.mixin({ toast: true, position: 'top-end', showConfirmButton: false, timer: 2500, timerProgressBar: true, })
+
 
     const handleRatingChange = (event) => {
         setRating(event.target.value);
       };
+
+
+      useEffect(() => {
+        if (locationStateFromAppoint.doctor_id) {
+            axios.post('http://localhost:3001/appointment/getdoctorbyid', {doctor_id:locationStateFromAppoint.doctor_id}).then(response => {
+                const responseStatus = response.status;
+
+                if (responseStatus === 200 || responseStatus === 201) {
+                    console.log(response.data['doctorName']);
+                    setDoctorName(response.data['doctorName']);
+                }   
+            }).catch(error => { 
+                console.log(error);
+            });
+        }
+      }, [locationStateFromAppoint.doctor_id])
+      
       
 
-    const [doctorInfo, setDoctorInfo] = useState({
-        name: '',
-        email: '',
-        workingPlace: '',
-        phoneNumber: '',
-        specialization: doctorSpecializations[0],
-        password: '',
+    const [reportInfo, setReportInfo] = useState({
+        patient_id: locationStateFromAppoint.user_id ? locationStateFromAppoint.user_id : '',
+        doctor_id: locationStateFromAppoint.doctor_id ? locationStateFromAppoint.doctor_id : '',
+        appointment_id: locationStateFromAppoint.appointment_id ? locationStateFromAppoint.appointment_id : '',
+        age: '',
+        disease: '',
+        conditionDisease: '',
+        description: ''
     });
 
     const [errors, setErrors] = useState({});
 
     const handleChange = (e) => {
-
         const { name, value } = e.target;
-        setDoctorInfo({ ...doctorInfo, [name]: value });
+        setReportInfo({ ...reportInfo, [name]: value });
     };
 
-    const handleSpecializationChange = (_, value) => {
-        setDoctorInfo({ ...doctorInfo, specialization: value });
+    const handleQuillValueChange = (_, value) => {
+        setReportInfo({ ...reportInfo, description: value });
     };
+
 
     const handelSubmit = (event) => {
         event.preventDefault();
-        // console.log(doctorInfo)
+
         const submitData = {
-            name: doctorInfo.name,
-            email: doctorInfo.email,
-            phone: doctorInfo.phoneNumber,
-            place: doctorInfo.workingPlace,
-            specialize: doctorInfo.specialization.label,
-            password: doctorInfo.password
-
+            patient_id: reportInfo.patient_id,
+            doctor_id: reportInfo.doctor_id,
+            appointment_id: reportInfo.appointment_id,
+            age: reportInfo.age,
+            disease: reportInfo.disease,
+            conditionDisease: reportInfo.conditionDisease,
+            description: 'description test'
         }
-        // swalFireReq1(method,url,data,swal1=null,swal2=null,callback1=null,swal3=null)
-        reqSend.defaultReq("POST", 'admin/add-doctor', submitData, responce => {
-            Swal.fire({ title: 'Success!', text: "Doctor Added Successfully", icon: 'success', confirmButtonText: 'OK' })
-        },
-            responce => {
-                Swal.fire({ title: 'Error!', text: responce.data.message, icon: 'error', confirmButtonText: 'OK' })
-            },
-            responce => {
-                Swal.fire({ title: 'Error!', text: "Something went Wrong", icon: 'error', confirmButtonText: 'OK' })
+
+        axios.post('http://localhost:3001/appointment/add-report', submitData, {
+            headers: {
+              'Content-Type': 'application/json',
             }
-        );
+        }).then(response => {
+            const responseStatus = response.status;
 
-
+            if (responseStatus === 200 || responseStatus === 201) {
+                navigate('/doctor');
+                Toast.fire({ icon: 'success', title: 'You have successfully sent the Report!' });
+                
+            }   
+        }).catch(error => { 
+            console.log(error);
+        });
     }
 
 
@@ -82,37 +108,43 @@ export default function AddReport(props) {
             <div className="table-data " >
                 <div className="order boxShadow1 " >
                     <div className="d-flex justify-content-center">
-                        <h3 style={{ textAlign: 'center' }}></h3>
+                        <h3 style={{ textAlign: 'center' }}>{locationStateFromAppoint.username ? locationStateFromAppoint.username : ''}'s Report</h3>
                     </div>
 
                     <div className='container mt-4'>
                         <form onSubmit={handelSubmit}>
                             <div className="row my-3">
                                 <div className="col col-md-6">
-                                    <TextField className='darkThemeText' required onChange={handleChange} name="Patient-name" label="Patient Name" variant="outlined" fullWidth />
+                                    <TextField className='darkThemeText' required name="Patient-name" label="Patient Name" 
+                                    value={locationStateFromAppoint.username ? locationStateFromAppoint.username : ''} variant="outlined" fullWidth />
                                 </div>
                                 <div className="col col-md-6">
-                                    <TextField className='darkThemeText' required onChange={handleChange} name="doctor-name" value={doctorInfo.email} label="Doctor Name" variant="outlined" fullWidth />
+                                    <TextField className='darkThemeText' required name="doctor-name" 
+                                    value={doctorName ? doctorName : ''} 
+                                    label="Doctor Name" variant="outlined" fullWidth />
                                 </div>
                             </div>
 
                             <div className='row my-3'>
                                 <div className="col col-md-6">
-                                    <TextField className='darkThemeText' required onChange={handleChange} name="Disease" value={doctorInfo.email} label="Disease" variant="outlined" fullWidth />
-                                </div>
-                                <div className="col col-md-6">
-                                    <TextField className='darkThemeText' required onChange={handleChange} name="Age" value={doctorInfo.email} label="Age" variant="outlined" fullWidth />
+                                    <TextField className='darkThemeText' required onChange={handleChange} name="age" label="Age" variant="outlined" fullWidth />
                                 </div>
 
-                                <div className='col col-md-6'>
+                                <div className="col col-md-6">
+                                    <TextField className='darkThemeText' required onChange={handleChange} name="disease" label="Disease" variant="outlined" fullWidth />
+                                </div>
+                            </div>
+
+
+                        <div className='row my-3'>
+                            <div className='col col-md-6'>
                                     <FormControl component="fieldset">
                                     <FormLabel component="legend">Condition of the Disease</FormLabel>
 
                                     <RadioGroup
                                         aria-label="Condition Rating"
-                                        name="conditionRating"
-                                        value={rating}
-                                        onChange={handleRatingChange}   
+                                        name="conditionDisease"
+                                        onChange={handleChange}   
                                         row
                                     >
                                         <FormControlLabel
@@ -136,12 +168,13 @@ export default function AddReport(props) {
                             </div>
 
 
-
                             <div className='row my-3'>
                                 <div className='col col-md-12'>
                                 <FormControl fullWidth>
                                     <FormLabel>Description</FormLabel>
                                     <ReactQuill
+                                        onChange={handleQuillValueChange}
+                                        name="description"
                                         style={{height: '150px', marginBottom: '20px'}}
                                         placeholder="Type here..."
                                         modules={{
@@ -166,7 +199,6 @@ export default function AddReport(props) {
                             <div className='row justify-content-center my-5'>
                                 <button
                                     type='submit'
-
                                     className='btn btn-md btn-primary' style={{ borderRadius: '50px', maxWidth: '250px' }}>Add Report</button>
                             </div>
                         </form>

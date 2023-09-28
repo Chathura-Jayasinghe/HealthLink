@@ -11,7 +11,10 @@ router.post('/place',checkAuth.checkAuth,appointmentController.placeAppointment)
 router.get('/',checkAuth.checkAuth,appointmentController.getAppointments);
 router.delete('/',checkAuth.checkAuth,appointmentController.deleteAppointment);
 
-
 router.post('/patients' ,doctorAppointController.getDoctorAppointments);
+router.post('/getdoctorbyid' ,doctorAppointController.getDoctorbyId);
+router.post('/add-report' ,doctorAppointController.addReport);
+
+
 
 module.exports = router;
