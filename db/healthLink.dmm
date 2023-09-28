@@ -82,7 +82,7 @@
 					"nn": false,
 					"list": false,
 					"comment": "",
-					"defaultvalue": "",
+					"defaultvalue": "admin",
 					"data": "",
 					"after": "",
 					"autoinc": false,
@@ -272,7 +272,7 @@
 					"nn": false,
 					"list": false,
 					"comment": "",
-					"defaultvalue": "",
+					"defaultvalue": "user",
 					"data": "",
 					"after": "",
 					"autoinc": false,
@@ -466,6 +466,48 @@
 					"list": false,
 					"comment": "",
 					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"autoinc": false,
+					"collation": null,
+					"charset": null,
+					"binary": false,
+					"zerofill": false,
+					"unsigned": false,
+					"enum": "",
+					"estimatedSize": ""
+				},
+				{
+					"id": "cf38c5da-257e-4ad3-af02-e0cf9dc2ee48",
+					"name": "specialize",
+					"datatype": "VARCHAR",
+					"param": "200",
+					"pk": false,
+					"nn": false,
+					"list": false,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"autoinc": false,
+					"collation": null,
+					"charset": null,
+					"binary": false,
+					"zerofill": false,
+					"unsigned": false,
+					"enum": "",
+					"estimatedSize": ""
+				},
+				{
+					"id": "1d19d9b7-8bb2-45a8-81a6-dd3e928ddc3c",
+					"name": "role",
+					"datatype": "VARCHAR",
+					"param": "10",
+					"pk": false,
+					"nn": false,
+					"list": false,
+					"comment": "",
+					"defaultvalue": "doctor",
 					"data": "",
 					"after": "",
 					"autoinc": false,
@@ -684,7 +726,8 @@
 			],
 			"generate": true,
 			"generateCustomCode": true,
-			"customCode": ""
+			"customCode": "",
+			"ri_pd": "Cascade"
 		},
 		"e8a9e94d-5de6-4a97-9322-243801b80809": {
 			"id": "e8a9e94d-5de6-4a97-9322-243801b80809",
@@ -710,7 +753,8 @@
 			],
 			"generate": true,
 			"generateCustomCode": true,
-			"customCode": ""
+			"customCode": "",
+			"ri_pd": "Cascade"
 		}
 	},
 	"notes": {},
@@ -759,7 +803,7 @@
 			"includeSchema": "always",
 			"quotation": "if_needed"
 		},
-		"lastSaved": "Wed Sep 20 2023 21:19:37 GMT+0530 (India Standard Time)"
+		"lastSaved": "Fri Sep 22 2023 20:14:34 GMT+0530 (India Standard Time)"
 	},
 	"otherObjects": {},
 	"diagrams": {
@@ -801,9 +845,9 @@
 				},
 				"f9100a84-2b5c-49bc-8a43-1a2fa68305ac": {
 					"referencedItemId": "f9100a84-2b5c-49bc-8a43-1a2fa68305ac",
-					"x": 603,
-					"y": 1144,
-					"gHeight": 135,
+					"x": 467,
+					"y": 1106,
+					"gHeight": 171,
 					"gWidth": 230,
 					"color": "#ffffff",
 					"background": "#9c27b0",

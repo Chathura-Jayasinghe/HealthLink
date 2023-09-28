@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 23, 2023 at 09:26 AM
+-- Generation Time: Sep 28, 2023 at 07:23 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -67,7 +67,10 @@ INSERT INTO `appointment` (`id`, `user_id`, `doctor_id`, `time`, `date`) VALUES
 ('e143bc5a-ac5a-4e72-b3d2-de92199f3291', NULL, '1', '08:38:00', '2023-09-06'),
 ('9207398e-0274-490d-801a-f79ac35bb1aa', '8f3bad717ebc914904f05ccf952e254e89a87a546fdb9e4dea7e75d6a8e8f1e9', '2', '14:22:00', '2023-07-30'),
 ('13235454-148c-4f68-af5f-4865ccec81cb', '8f3bad717ebc914904f05ccf952e254e89a87a546fdb9e4dea7e75d6a8e8f1e9', '1', '00:00:00', '0000-00-00'),
-('95617a75-f6c8-4ce5-bede-49c0f61dac4c', '8f3bad717ebc914904f05ccf952e254e89a87a546fdb9e4dea7e75d6a8e8f1e9', '2', '09:09:00', '2023-09-12');
+('95617a75-f6c8-4ce5-bede-49c0f61dac4c', '8f3bad717ebc914904f05ccf952e254e89a87a546fdb9e4dea7e75d6a8e8f1e9', '2', '09:09:00', '2023-09-12'),
+('7fa843cc-6789-4ea5-9bd2-7924f188a246', '8f3bad717ebc914904f05ccf952e254e89a87a546fdb9e4dea7e75d6a8e8f1e9', '1', '18:05:00', '2023-09-14'),
+('3bf91cb3-1d8e-4767-ab53-7913e6354b5b', '8f3bad717ebc914904f05ccf952e254e89a87a546fdb9e4dea7e75d6a8e8f1e9', '1', '18:08:00', '2023-09-22'),
+('c17741b7-ccaa-458a-a341-4bf14c3d2d2c', '8f3bad717ebc914904f05ccf952e254e89a87a546fdb9e4dea7e75d6a8e8f1e9', '1', '18:08:00', '2023-09-18');
 
 -- --------------------------------------------------------
 
@@ -94,7 +97,8 @@ INSERT INTO `doctor` (`id`, `name`, `email`, `phone`, `place`, `password`, `spec
 ('1', 'kavindu', 'kavindu@gmail.com', '0761747447', 'katubadda', '12', 'Common', 'doctor'),
 ('2', 'damsith', 'damsith@gmail.com', NULL, 'mawanella', '12', 'Common', 'doctor'),
 ('64b974fe-2c7f-4cb5-a4a9-279a1930742f', 'bandara', 'bandara2@gmail.com', '07712345567', 'kandy', '12', 'Common', 'doctor'),
-('a9c4bf72-bd4f-40e1-bc3d-1c6e27b2a6bf', 'doctor', 'doctor@gmail.com', '+94761747447', 'kandy', '12', 'Brain-Cerebellum', 'doctor');
+('a9c4bf72-bd4f-40e1-bc3d-1c6e27b2a6bf', 'doctor', 'doctor@gmail.com', '+94761747447', 'kandy', '12', 'Brain-Cerebellum', 'doctor'),
+('fbc30083-70b5-4f39-ba41-f2b3453775a8', 'kaivndu damsith', 'thilakarathnakdb.21@uom.lk', '+94761747447', 'kandy', '12', 'Common', 'doctor');
 
 -- --------------------------------------------------------
 
