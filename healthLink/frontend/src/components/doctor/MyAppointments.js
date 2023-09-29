@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {motion} from 'framer-motion';
+import { motion } from 'framer-motion';
 import pat1 from '../../assets/patients/patient1.jpg';
 import pat2 from '../../assets/patients/patient2.jpg';
 import pat3 from '../../assets/patients/patient3.jpg';
@@ -29,7 +29,6 @@ export default function MyAppointments(props) {
             return formattedDate;
         }
     }
-    
 
 
 
@@ -44,7 +43,6 @@ export default function MyAppointments(props) {
                     </div>
                     <table>
                         <thead>
-                            <tr style={{color:'balack'}}>
                             <tr style={{ color: 'balack' }}>
                                 <th>ID</th>
                                 <th>Name</th>
@@ -85,7 +83,6 @@ export default function MyAppointments(props) {
                                                     //             setIsComponentChanged(!isComponentChanged)
                                                     //         }, "Error! Check Your Connection");
                                                     // }}
-                                                    whileHover={{ scale: 1.2, cursor: 'pointer' }} transition={{ delay: 0, duration: 0.05 }} className="status delivered" style={{color:'#000',fontSize:'15px'}}>Add a <br />Report</motion.p>
                                                     whileHover={{ scale: 1.2, cursor: 'pointer' }} transition={{ delay: 0, duration: 0.05 }} className="status delivered" style={{ color: '#000', fontSize: '15px' }}>Add a <br />Report</motion.p>
                                             </Link>
                                         </td>
@@ -98,7 +95,6 @@ export default function MyAppointments(props) {
                                                 //             setIsComponentChanged(!isComponentChanged)
                                                 //         }, "Error! Check Your Connection");
                                                 // }}
-                                                whileHover={{ scale: 1.2, cursor: 'pointer' }} transition={{ delay: 0, duration: 0.05 }} className="status cancelled" style={{color:'#B30021',fontSize:'15px', marginLeft: '10px'}}>Cancel <br />Request</motion.p>
                                                 whileHover={{ scale: 1.2, cursor: 'pointer' }} transition={{ delay: 0, duration: 0.05 }} className="status cancelled" style={{ color: '#B30021', fontSize: '15px', marginLeft: '10px' }}>Cancel <br />Request</motion.p>
                                         </td>
                                     </tr>

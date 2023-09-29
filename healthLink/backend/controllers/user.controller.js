@@ -81,7 +81,7 @@ function login(req, res) {
     const { email, password } = req.body;
 
     try {
-        dbPool.query('SELECT password,id,email,role FROM user WHERE email = ?', [email], (error, results) => {
+        dbPool.query('SELECT password,id,email,role,phone FROM user WHERE email = ?', [email], (error, results) => {
             // return res.status(200).json({ results: results });
             if (error) {
                 return res.status(250).json({ message: 'Error', error: error });
@@ -97,7 +97,9 @@ function login(req, res) {
                                 return res.status(200).json({
                                     message: "Authentication successful!",
                                     token: token,
-                                    userId: results[0].id
+                                    userId: results[0].id,
+                                    role:results[0].role,
+                                    phone:results[0].phone
                                 });
                             });
                         } else {
