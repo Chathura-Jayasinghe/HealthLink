@@ -245,6 +245,9 @@ function NavBar(props) {
                                     <Link className="nav-link" to="/" >Home</Link>
                                 </li>
                                 <li className="nav-item">
+                                    <Link className="nav-link" to="/mri-scan" >MRI Scan</Link>
+                                </li>
+                                <li className="nav-item">
                                     <Link className="nav-link" to="/doctors">Doctors</Link>
                                 </li>
                                 <li className="nav-item">

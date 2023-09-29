@@ -16,6 +16,7 @@ import DoctorLogin from './components/doctor/login';
 import Dashboard from './components/admin/dashboard';
 import DoctorDashboard from './components/doctor/dashboard';
 import MyReports from './components/MyReports';
+import MriScan from './components/MriScan';
 import PaymentGateway from './components/payment/PaymentGateway';
 
 function App() {
@@ -47,8 +48,9 @@ function App() {
                             <div>
                                 <NavBar loginPop={loginPop} setLoginPop={setLoginPop} />
                                 <Routes>
-                                    <Route path="/" element={<Home setLoginPop={setLoginPop} />} />
+                                <Route path="/" element={<Home setLoginPop={setLoginPop} />} />
                                     <Route path="/doctors" element={<Doctors setLoginPop={setLoginPop} />} />
+                                    <Route path="/mri-scan" element={<MriScan setLoginPop={setLoginPop} />} />
                                     <Route path="/contact" element={<Contact />} />
                                     <Route path="/appointment" element={<Appointment setLoginPop={setLoginPop} />} />
                                     <Route path="/my-appointments" element={<MyAppointments setLoginPop={setLoginPop} />} />

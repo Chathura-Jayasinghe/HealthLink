@@ -13,6 +13,8 @@ const axios = require("axios");
 
 
 app.use(cors());
+// app.use(cors({ origin: 'http://20.194.199.67:3000'}));
+
 app.use(bodyParser.json());
 app.use("/user", userRoute);
 app.use("/appointment", appointmentRoute);
