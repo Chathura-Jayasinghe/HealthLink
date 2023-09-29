@@ -66,26 +66,6 @@
     box-shadow: none;
 }
 
-.inputbox {
-    position: relative;
-    margin-bottom: 20px;
-    width: 100%;
-}
-
-.inputbox span {
-    position: absolute;
-    top: 7px;
-    left: 11px;
-    transition: 0.5s;
-}
-
-.inputbox i {
-    position: absolute;
-    top: 13px;
-    right: 8px;
-    transition: 0.5s;
-    color: #3F51B5;
-}
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -104,7 +84,7 @@ input::-webkit-inner-spin-button {
 }
 
 .pay button {
-    height: 47px;
+    width: 100%;
     border-radius: 37px;
 }
 /*  */
