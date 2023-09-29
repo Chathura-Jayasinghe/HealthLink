@@ -5,6 +5,11 @@
         "DB_USER": "root",
         "DB_PASSWORD": "",
         "DB_NAME": "healthlink",
-        "LINE_BREAKER_1": " New Line Break "
+        "LINE_BREAKER_1": " New Line Break ",
+
+
+        "APP_ID":"APP_008062",
+        "PASSWORD":"126fbbc014e43111880774470e6c4dd8",
+        "ACCOUNTID":"116052149084"
     }
 }
