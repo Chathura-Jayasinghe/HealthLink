@@ -29,34 +29,29 @@ export default function MyReports(props) {
     const [expandedRows, setExpandedRows] = useState({});
     const [lightboxOpen, setLightboxOpen] = useState(false);
     const [lightboxIndex, setLightboxIndex] = useState(0);
-    const location = useLocation();
-    const locationStateFromUserLogin = location.state ? location.state : '';
-    const [myReportDetails, setMyReportDetails] = useState([]);
+    // const location = useLocation();
+    // const locationStateFromUserLogin = location.state ? location.state : '';
+    const [myReportDetails, setMyReportDetails] = useState(null);
 
 
 
 
 
     useEffect(() => {
-        if (locationStateFromUserLogin) {
-            axios.get('http://localhost:3001/appointment/myreports/user', {user_id: locationStateFromUserLogin.userId}).then(response => {
+        if (localStorage.getItem('userId')) {
+            axios.post('http://localhost:3001/appointment/myreports/user', {user_id: localStorage.getItem('userId')}).then(response => {
                 const responseStatus = response.status;
 
                 if (responseStatus === 200 || responseStatus === 201) {
+                    console.log(response.data);
                     setMyReportDetails(response.data['reports']);
                 }   
             }).catch(error => { 
                 console.log(error);
             });
         }
-      }, [locationStateFromUserLogin])
+      }, [localStorage.getItem('userId')])
 
-
-      useEffect(() => {
-        if (myReportDetails) {
-            console.log(myReportDetails);
-        }
-      }, [myReportDetails])
 
 
     const toggleRowExpansion = (index) => {
@@ -93,7 +88,7 @@ export default function MyReports(props) {
                             <tbody>
                 {myReportDetails &&
                   myReportDetails.map((report, index) => {
-                    const date = new Date(report.date);
+                    const date = new Date(report.time);
                     const formattedDate = date.toLocaleDateString('en-US', {
                       year: 'numeric',
                       month: 'short',
@@ -116,10 +111,10 @@ export default function MyReports(props) {
                           <td>
                             {' '}
                             <img style={{ objectFit: 'cover' }} src={doctorImages[index % doctorImages.length]} alt="" />
-                            &nbsp;Dr.{myReportDetails.doctor_name}
+                            &nbsp;Dr.{report.doctor_name}
                           </td>
-                          <td> {myReportDetails.time} </td>
-                          <td>{myReportDetails.time}</td>
+                          <td> {formattedDate} </td>
+                          <td>{formattedTime}</td>
                           <td>
                             <motion.p
                               onClick={() => toggleRowExpansion(index)}
@@ -137,16 +132,16 @@ export default function MyReports(props) {
                             <div className="expanded-content">
                               <div className="details">
                                 <p>
-                                  <strong>Age:</strong> {myReportDetails.age}
+                                  <strong>Age:</strong> {report.age}
                                 </p>
                                 <p>
-                                  <strong>Disease:</strong> {myReportDetails.disease}
+                                  <strong>Disease:</strong> {report.disease}
                                 </p>
                                 <p>
-                                  <strong>Condition Level:</strong> {myReportDetails.condition_level}
+                                  <strong>Condition Level:</strong> {report.condition_level}
                                 </p>
                                 <p>
-                                  <strong>Description:</strong> {myReportDetails.description}
+                                  <strong>Description:</strong> <div>{report.description}</div>
                                 </p>
                               </div>
                               <div className="image-container">
