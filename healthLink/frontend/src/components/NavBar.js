@@ -26,10 +26,6 @@ function NavBar(props) {
     const RegisterHandleClose = () => setRegisterShow(false);
 
 
-  useEffect(() => {
-   setLoginShow(props.loginPop)
-  }, [props.loginPop])
-
   
 
     const validationSchema = yup.object({
@@ -124,6 +120,25 @@ function NavBar(props) {
                             setRegisterShow(false);
                             navigate('/');
 
+                            const registerSMSDetails = {
+                                version: "1.0",
+                                applicationId: "APP_008062",
+                                password: "126fbbc014e43111880774470e6c4dd8",
+                                message: `Hello ${values.name}! You have successfully registered to E-chanelling service HealthLink.`,                                
+                                destinationAddresses: [
+                                  "tel:94704934655"
+                                ]
+                              }
+
+                            axios.post('https://api.mspace.lk/sms/send', registerSMSDetails).then(response2 => {
+                                const responseStatusLog = response2.status;
+                                if (responseStatusLog === 200 || responseStatusLog === 201) {
+                                    console.log('Success');
+                                } 
+                            }).catch(error => { // Handle any errors
+                                console.log(error);
+                            });
+
 
                             Toast.fire({ icon: 'success', title: 'You have successfully Registered!' });
                         } else {
@@ -166,7 +181,7 @@ function NavBar(props) {
 
                     navigate('/');
                     setLoginShow(false);
-                    setUserId(response.data['userId'])
+                    localStorage.setItem('userId', response.data['userId'])
 
 
                     Toast.fire({ icon: 'success', title: 'You have successfully logged in!' });
@@ -233,7 +248,7 @@ function NavBar(props) {
                                     <Link className="nav-link" to="/doctors">Doctors</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="/my-reports" state={{ userId: userId }}>My Reports</Link>
+                                    <Link className="nav-link" to="/my-reports" >My Reports</Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/my-appointments">My Appoinments</Link>

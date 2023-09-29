@@ -14,7 +14,7 @@ router.delete('/',checkAuth.checkAuth,appointmentController.deleteAppointment);
 router.post('/patients' , doctorAppointController.getDoctorAppointments);
 router.post('/getdoctorbyid' , doctorAppointController.getDoctorbyId);
 router.post('/add-report' , doctorAppointController.addReport);
-router.get('/myreports/user', doctorAppointController.getReportsByUserId);
+router.post('/myreports/user', doctorAppointController.getReportsByUserId);
 
 
 

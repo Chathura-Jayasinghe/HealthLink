@@ -16,6 +16,7 @@ import DoctorLogin from './components/doctor/login';
 import Dashboard from './components/admin/dashboard';
 import DoctorDashboard from './components/doctor/dashboard';
 import MyReports from './components/MyReports';
+import PaymentGateway from './components/payment/PaymentGateway';
 
 function App() {
     const [loginPop, setLoginPop] = useState(false);
@@ -52,6 +53,8 @@ function App() {
                                     <Route path="/appointment" element={<Appointment setLoginPop={setLoginPop} />} />
                                     <Route path="/my-appointments" element={<MyAppointments setLoginPop={setLoginPop} />} />
                                     <Route path="/my-reports" element={<MyReports setLoginPop={setLoginPop} /> } />
+                                    <Route path="/payment" element={<PaymentGateway /> } />
+
                                 </Routes>
                                 <Footer />
                             </div>
