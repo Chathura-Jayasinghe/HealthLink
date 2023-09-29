@@ -1,11 +1,45 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './PaymentGateway.css';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
+import { Button } from '@mui/base';
+import axios from 'axios';
+
+
 
 export default function PaymentGateway() {
+    const [otp, setOtp] = useState('');
+
+    const handleSendOTP = () => {
+        // Generate a random 6-digit number
+        const randomOtp = Math.floor(100000 + Math.random() * 900000);
+        setOtp(randomOtp.toString());
+
+        // Prepare the SMS data
+        const smsData = {
+            version: '1.0',
+            applicationId: 'APP_008062',
+            password: '126fbbc014e43111880774470e6c4dd8',
+            message: `Your OTP for HealthLink is: ${randomOtp}`,
+            destinationAddresses: [
+                'tel: 94701373491'
+            ]
+        };
+
+        // Send the SMS using Axios
+        axios.post('https://api.mspace.lk/sms/send', smsData)
+            .then(response => {
+                console.log('SMS sent successfully:', response.data);
+            })
+            .catch(error => {
+                console.error('Error sending SMS:', error);
+            });
+    };
+
+
+
     return (
         <div>
             <button type="button" class="btn btn-primary gateway-launch" data-toggle="modal" data-target="#staticBackdrop"> <i class="fa fa-rocket"></i> Pay Now</button>
@@ -38,13 +72,19 @@ export default function PaymentGateway() {
                                             <div className="text-center">
                                                 <h5>Caas Payment</h5>
                                             </div>
+
                                             <div className="inputbox mt-4">
-                                                <TextField
-                                                    label="Your Mobitel Number"
+                                                <div>
+                                                    <p>Your Default Number is <span style={{color:'red'}}>070 XXX X655</span>
+                                                    <Button variant="outlined" onClick={handleSendOTP} className="ml-2 btn btn-info">Send OTP</Button>
+                                                    </p>
+                                                </div>
+                                               <TextField
+                                                    label="Enter OTP"
                                                     variant="outlined"
                                                     fullWidth
                                                     required
-                                                    defaultValue="0704934655"
+                                                    className='mt-2'
                                                 />
                                             </div>
                                             <div className="pay px-5 mt-4">
