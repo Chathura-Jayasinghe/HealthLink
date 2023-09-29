@@ -397,6 +397,22 @@
 	font-weight: 500;
 }
 
+ .btn-scan {
+	border: none;
+	height: 45px;
+
+	padding: 0 40px;
+	border-radius: 36px;
+	background: rgb(1, 201, 1);
+	color: var(--light);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	grid-gap: 10px;
+	font-weight: 500;
+}
+
+
 
 
 
