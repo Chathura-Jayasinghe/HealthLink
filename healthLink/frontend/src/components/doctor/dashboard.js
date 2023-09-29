@@ -97,7 +97,7 @@ export default function DoctorDashboard() {
                     <TopBar avatar={avatar} />
                     <Routes>
                         <Route path="/" element={<DoctorHome totalAppoint={patient.length} />} />
-                        <Route path="/my-appointments" element={<MyAppointments patientData={patient} />} />
+                        <Route path="/my-appointments" element={<MyAppointments patientData={patient ? patient : ''} />} />
                         <Route path="/add-report" element={<AddReport /> } />
                     </Routes>
 

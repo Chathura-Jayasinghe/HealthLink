@@ -133,6 +133,42 @@ tbody tr.hide td img {
 }
 
 
+.expanded-row {
+    background-color: #f5f5f5; /* Background color for the expanded row */
+  }
+  
+  .expanded-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+  }
+  
+  .details {
+    flex: 1;
+  }
+  
+  .details p {
+    margin: 8px 0;
+  }
+  
+  .image-container {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .reportImg {
+    width: 120px;
+    border-radius: 8px;
+    height: 160px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .viewReport:hover {
+    transform: none !important;
+  }
+  
+
+
 @media (max-width: 1000px) {
     td:not(:first-of-type) {
         min-width: 12.1rem;

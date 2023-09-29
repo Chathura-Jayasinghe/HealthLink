@@ -97,6 +97,7 @@ function login(req, res) {
                                 return res.status(200).json({
                                     message: "Authentication successful!",
                                     token: token,
+                                    userId: results[0].id
                                 });
                             });
                         } else {

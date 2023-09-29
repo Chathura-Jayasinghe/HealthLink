@@ -32,11 +32,20 @@ export function SideNavigation(props) {
             confirmButtonText: 'Yes, Log out!'
         }).then((result) => {
             if (result.isConfirmed) {
-                localStorage.removeItem('token');
-                localStorage.removeItem('role');
+                if (localStorage.getItem('role') === 'admin') {
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('role');
 
-                navigate('/admin/login');
-                Toast.fire({ icon: 'success', title: 'You logged out!' });
+                    navigate('/admin/login');
+                    Toast.fire({ icon: 'success', title: 'You logged out!' });
+
+                } else if (localStorage.getItem('role') === 'doctor') {
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('role');
+
+                    navigate('/doctor/login');
+                    Toast.fire({ icon: 'success', title: 'You logged out!' });
+                }
             }
         })
     }
