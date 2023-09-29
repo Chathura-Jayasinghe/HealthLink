@@ -20,7 +20,7 @@ export default function MyAppointments(props) {
         if (props.patientData) {
             setPatientData(props.patientData);
         }
-    }, [props.patientData, patientData])
+    }, [props.patientData])
 
 
     const dateFormat = (inputDate) => {
@@ -61,12 +61,12 @@ export default function MyAppointments(props) {
                                         <td >
                                            <div className="d-flex">
                                            <img src={patientImages[index%patientImages.length]} />
-                                            <p>{patient.user.name}</p>
+                                            <p>{patient && patient.user && patient.user.name ? patient.user.name : ''}</p>
                                            </div>
                                         </td>
-                                        <td>{patient.user.email}</td>
+                                        <td>{patient && patient.user && patient.user.email ? patient.user.email : ''}</td>
                                         <td>{patient.date ? dateFormat(patient.date) : ''}</td>
-                                        <td>{patient.time}</td>
+                                        <td>{patient.time ? patient.time : ''}</td>
                                         <td>
                                         <Link to='/doctor/add-report'
                     

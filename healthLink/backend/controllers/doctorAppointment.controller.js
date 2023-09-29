@@ -95,11 +95,44 @@ function addReport(req, res) {
       }
     });
   }
-  
 
+
+
+  function getReportsByUserId(req, res) {
+    const { user_id } = req.body;
+  
+    // SQL query to fetch reports and doctor information based on user_id
+    const query = `
+      SELECT
+        reports.time,
+        reports.user_id,
+        reports.age,
+        reports.disease,
+        reports.condition_level,
+        reports.description,
+        doctor.name AS doctor_name
+      FROM
+        reports
+      INNER JOIN
+        doctor ON reports.doctor_id = doctor.id
+      WHERE
+        reports.user_id = ?;
+    `;
+  
+    dbPool.query(query, [user_id], (error, results) => {
+      if (error) {
+        return res.status(500).json({ message: 'An error occurred' });
+      } else {
+        return res.status(200).json({ reports: results });
+      }
+    });
+  }
+  
+  
 
 module.exports = {
     getDoctorAppointments: getDoctorAppointments,
     getDoctorbyId: getDoctorbyId,
-    addReport: addReport
+    addReport: addReport,
+    getReportsByUserId: getReportsByUserId
 } 

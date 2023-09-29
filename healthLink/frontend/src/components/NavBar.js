@@ -20,6 +20,7 @@ function NavBar(props) {
     // const [showModal, setShowModal] = useState(true);
     const [loginShow, setLoginShow] = useState(false);
     const [registerShow, setRegisterShow] = useState(false);
+    const [userId, setUserId] = useState('');
 
     const loginHandleClose = () => {props.setLoginPop(false);setLoginShow(false)}
     const RegisterHandleClose = () => setRegisterShow(false);
@@ -28,6 +29,7 @@ function NavBar(props) {
   useEffect(() => {
    setLoginShow(props.loginPop)
   }, [props.loginPop])
+
   
 
     const validationSchema = yup.object({
@@ -164,6 +166,8 @@ function NavBar(props) {
 
                     navigate('/');
                     setLoginShow(false);
+                    setUserId(response.data['userId'])
+
 
                     Toast.fire({ icon: 'success', title: 'You have successfully logged in!' });
                 } else {
@@ -213,7 +217,7 @@ function NavBar(props) {
         <>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <div className="container-fluid">
-                    <Link className="navbar-brand" href="index.php">XENZER</Link>
+                    <Link className="navbar-brand" href="index.php">HealthLink</Link>
                     <div>
                         <button className="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -229,7 +233,7 @@ function NavBar(props) {
                                     <Link className="nav-link" to="/doctors">Doctors</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="my-reports">My Reports</Link>
+                                    <Link className="nav-link" to="/my-reports" state={{ userId: userId }}>My Reports</Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/my-appointments">My Appoinments</Link>
