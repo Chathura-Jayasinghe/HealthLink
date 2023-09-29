@@ -117,6 +117,8 @@ function NavBar(props) {
                         if (responseStatusLog === 200 || responseStatusLog === 201) {
 
                             localStorage.setItem('token', response2.data['token']);
+                            localStorage.setItem('phone', response2.data['phone']);
+                            localStorage.setItem('role', response2.data['role']);
                             setRegisterShow(false);
                             navigate('/');
 
