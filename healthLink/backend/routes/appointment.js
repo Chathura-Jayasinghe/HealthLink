@@ -3,11 +3,12 @@ const appointmentController = require('../controllers/appointment.controller');
 const doctorAppointController = require('../controllers/doctorAppointment.controller');
 
 const checkAuth = require('../middleware/check-auth');
+const mspace = require('../middleware/mspace');
 
 const router = express.Router();
 
 router.post('/doctors' ,appointmentController.filterDoctors);
-router.post('/place',checkAuth.checkAuth,appointmentController.placeAppointment);
+router.post('/place',checkAuth.checkAuth,mspace.cass,appointmentController.placeAppointment);
 router.get('/',checkAuth.checkAuth,appointmentController.getAppointments);
 router.delete('/',checkAuth.checkAuth,appointmentController.deleteAppointment);
 
