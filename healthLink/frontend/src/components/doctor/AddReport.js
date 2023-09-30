@@ -28,7 +28,7 @@ export default function AddReport(props) {
 
       useEffect(() => {
         if (locationStateFromAppoint.doctor_id) {
-            axios.post('http://localhost:3001/appointment/getdoctorbyid', {doctor_id:locationStateFromAppoint.doctor_id}).then(response => {
+            axios.post('http://20.194.199.67:3001/appointment/getdoctorbyid', {doctor_id:locationStateFromAppoint.doctor_id}).then(response => {
                 const responseStatus = response.status;
 
                 if (responseStatus === 200 || responseStatus === 201) {
@@ -78,7 +78,7 @@ export default function AddReport(props) {
             description: 'description test'
         }
 
-        axios.post('http://localhost:3001/appointment/add-report', submitData, {
+        axios.post('http://20.194.199.67:3001/appointment/add-report', submitData, {
             headers: {
               'Content-Type': 'application/json',
             }

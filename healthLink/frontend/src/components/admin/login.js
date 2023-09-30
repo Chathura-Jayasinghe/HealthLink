@@ -18,7 +18,7 @@ export default function Login() {
 
     const handelLogin = () => {
         if (email && password) {
-            axios.post('http://localhost:3001/user/admin/login', {email:email,password:password}).then(response => {
+            axios.post('http://20.194.199.67:3001/user/admin/login', {email:email,password:password}).then(response => {
                 const responseStatus = response.status;
 
                 if (responseStatus === 200 | responseStatus === 201) {

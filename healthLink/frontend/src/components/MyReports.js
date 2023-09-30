@@ -39,7 +39,7 @@ export default function MyReports(props) {
 
     useEffect(() => {
         if (localStorage.getItem('userId')) {
-            axios.post('http://localhost:3001/appointment/myreports/user', {user_id: localStorage.getItem('userId')}).then(response => {
+            axios.post('http://20.194.199.67:3001/appointment/myreports/user', {user_id: localStorage.getItem('userId')}).then(response => {
                 const responseStatus = response.status;
 
                 if (responseStatus === 200 || responseStatus === 201) {

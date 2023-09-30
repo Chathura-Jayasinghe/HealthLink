@@ -8,7 +8,7 @@ const Toast = Swal.mixin({ toast: true, position: 'top-end', showConfirmButton: 
 export function defaultReq(method,url,data,callback1=null,callback2=null,callback3=null){
     var options = {
         method:method,
-        url: 'http://localhost:3001/'+url,
+        url: 'http://20.194.199.67:3001/'+url,
         headers: {
             'Content-Type': 'application/json',
             Authorization: 'Bearer ' + localStorage.getItem("token")
@@ -42,7 +42,7 @@ export function defaultReq(method,url,data,callback1=null,callback2=null,callbac
 export function swalFireReq1(method,url,data,swal1=null,swal2=null,callback1=null,swal3=null){
     var options = {
         method:method,
-        url: 'http://localhost:3001/'+url,
+        url: 'http://20.194.199.67:3001/'+url,
         headers: {
             'Content-Type': 'application/json',
             Authorization: 'Bearer ' + localStorage.getItem("token")
@@ -83,7 +83,7 @@ export function swalFireReq1(method,url,data,swal1=null,swal2=null,callback1=nul
 export function swalFireReq2(method,url,data,swal1=null,swal2=null,callback1=null,swal3=null){
     var options = {
         method:method,
-        url: 'http://localhost:3001/'+url,
+        url: 'http://20.194.199.67:3001/'+url,
         headers: {
             'Content-Type': 'application/json',
             Authorization: 'Bearer ' + localStorage.getItem("token")
