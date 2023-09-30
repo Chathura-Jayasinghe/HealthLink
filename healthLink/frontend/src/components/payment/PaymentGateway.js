@@ -9,7 +9,7 @@ import axios from 'axios';
 
 
 
-export default function PaymentGateway() {
+export default function PaymentGateway(props) {
     const [otp, setOtp] = useState('');
 
     const handleSendOTP = () => {
@@ -85,7 +85,7 @@ export default function PaymentGateway() {
                                                 />
                                             </div>
                                             <div className="pay px-5 mt-4">
-                                                <button className="btn btn-success btn-block">Pay Now</button>
+                                                <button onClick={props.placeAppointment} className="btn btn-success btn-block">Pay Now</button>
                                             </div>
                                         </div>
                                     </div>

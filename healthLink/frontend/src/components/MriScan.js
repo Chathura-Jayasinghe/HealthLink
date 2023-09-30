@@ -7,6 +7,10 @@ import { motion } from "framer-motion";
 import { v4 as uuidv4 } from 'uuid';
 import Swal from "sweetalert2";
 import axios from "axios";
+import { DoctorSectionDefault } from './sideComps/filterSections';
+import * as reqSend from "../global/reqSender";
+
+
 const Toast = Swal.mixin({ toast: true, position: 'top-end', showConfirmButton: false, timer: 3000, timerProgressBar: true, })
 
 
@@ -14,11 +18,21 @@ function MriScan(props) {
 
     const className = 'p-16 mt-10';
 
+    useEffect(() => {
+
+        reqSend.defaultReq("POST", 'appointment/doctors', { name: "", date: "" }, (response) => {
+            setDoctorFilter(response.data.results)
+        });
+
+    }, [])
+
+
     const [uploading, setUploading] = useState(false);
     const [uploadProgress, setUploadProgress] = useState(0);
     const [files, setFiles] = useState([])
     const [mriResults, setMriResults] = useState([])
     const [count, setCount] = useState(0)
+    const [doctorFilter, setDoctorFilter] = useState(null);
 
 
 
@@ -226,6 +240,11 @@ function MriScan(props) {
 
             </div>
         </div >
+
+
+        <div className='mt-5 pt-4'>
+                <DoctorSectionDefault doctorFilter={doctorFilter} text={"Recommended For You"} setLoginPop={props.setLoginPop} />
+            </div>
 
         </>
     )

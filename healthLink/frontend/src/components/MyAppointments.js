@@ -24,6 +24,7 @@ export default function MyAppointments() {
 
     useEffect(() => {
         reqSend.defaultReq("GET", 'appointment/', {}, (response) => {
+        
             setAppointments(response.data.results)
         });
     }, [isComponentChanged])
