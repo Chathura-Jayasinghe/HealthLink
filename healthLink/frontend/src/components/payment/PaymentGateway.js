@@ -17,25 +17,25 @@ export default function PaymentGateway() {
         const randomOtp = Math.floor(100000 + Math.random() * 900000);
         setOtp(randomOtp.toString());
 
-        // Prepare the SMS data
-        const smsData = {
+
+        const options = {
+          method: 'POST',
+          url: 'https://api.mspace.lk/sms/send',
+          headers: {'Content-Type': 'application/json'},
+          data: {
             version: '1.0',
             applicationId: 'APP_008062',
             password: '126fbbc014e43111880774470e6c4dd8',
-            message: `Your OTP for HealthLink is: ${randomOtp}`,
-            destinationAddresses: [
-                'tel: 94701373491'
-            ]
+            message: 'Hello, Kavindu',
+            destinationAddresses: ['tel:94701373491']
+          }
         };
-
-        // Send the SMS using Axios
-        axios.post('https://api.mspace.lk/sms/send', smsData)
-            .then(response => {
-                console.log('SMS sent successfully:', response.data);
-            })
-            .catch(error => {
-                console.error('Error sending SMS:', error);
-            });
+        
+        axios.request(options).then(function (response) {
+          console.log(response.data);
+        }).catch(function (error) {
+          console.error(error);
+        });
     };
 
 
