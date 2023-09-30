@@ -8,7 +8,7 @@ const mspace = require('../middleware/mspace');
 const router = express.Router();
 
 router.post('/doctors' ,appointmentController.filterDoctors);
-router.post('/place',checkAuth.checkAuth,mspace.cass,appointmentController.placeAppointment);
+router.post('/place',checkAuth.checkAuth,appointmentController.placeAppointment);
 router.get('/',checkAuth.checkAuth,appointmentController.getAppointments);
 router.delete('/',checkAuth.checkAuth,appointmentController.deleteAppointment);
 
