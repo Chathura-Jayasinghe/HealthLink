@@ -69,7 +69,7 @@ export default function Appointment(props) {
 
     return (
         <div id="scroolInto" className="container">
-            <PaymentGateway/>
+            <PaymentGateway placeAppointment={placeAppointment}/>
             <div className="card mb-4 border-0" >
                 <div className="row">
                     <div className="my-3 px-4 mt-5" ref={elementToScrollRef}>
@@ -129,7 +129,7 @@ export default function Appointment(props) {
 
 
             <div className='mt-5 pt-4'>
-                <DoctorSectionDefault doctorFilter={doctorFilter} text={"Recommended For You"} setLoginPop={props.setLoginPop} />
+                <DoctorSectionDefault  doctorFilter={doctorFilter} text={"Recommended For You"} setLoginPop={props.setLoginPop} />
             </div>
         </div>
     )
