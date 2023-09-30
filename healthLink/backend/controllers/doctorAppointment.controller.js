@@ -89,7 +89,8 @@ function addReport(req, res) {
   
     dbPool.query(insertQuery, values, (error, results) => {
       if (error) {
-        return res.status(500).json({ message: 'An error occurred' });
+        console.log(error)
+        return res.status(500).json({ message: 'An error occurred',error:error });
       } else {
         return res.status(201).json({ message: 'Report added successfully' });
       }
