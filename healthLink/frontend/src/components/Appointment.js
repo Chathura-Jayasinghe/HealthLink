@@ -1,10 +1,10 @@
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 import Rating from '@mui/material/Rating';
 import { DoctorSectionDefault } from './sideComps/filterSections';
 import * as reqSend from "../global/reqSender";
 import Swal from "sweetalert2";
-
+import PaymentGateway from './payment/PaymentGateway';
 
 import doc1 from '../assets/doctors/doctor1.jpg';
 import doc2 from '../assets/doctors/doctor2.jpg';
@@ -69,6 +69,7 @@ export default function Appointment(props) {
 
     return (
         <div id="scroolInto" className="container">
+            <PaymentGateway/>
             <div className="card mb-4 border-0" >
                 <div className="row">
                     <div className="my-3 px-4 mt-5" ref={elementToScrollRef}>
@@ -114,7 +115,7 @@ export default function Appointment(props) {
                                 <div className="border bg-light p-3 mb-3 m-auto text-center">
                                     <p id="errorLog" style={{ color: 'red' }}></p>
                                     <button className="btn text-white shadow-none custom-bg"
-                                    onClick={placeAppointment}
+                                    data-toggle="modal" data-target="#staticBackdrop"
                                     >Place Appointment</button>
                                 </div>
                             </div>

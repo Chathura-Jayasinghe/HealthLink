@@ -41,10 +41,7 @@ export default function PaymentGateway() {
 
 
     return (
-        <div>
-            <button type="button" class="btn btn-primary gateway-launch" data-toggle="modal" data-target="#staticBackdrop"> <i class="fa fa-rocket"></i> Pay Now</button>
-
-            <div className="modal fade payment-body" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div className="modal fade payment-body" id="staticBackdrop"  data-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                
                 <div className="modal-dialog">
                     <div className="modal-content">
@@ -156,6 +153,5 @@ export default function PaymentGateway() {
                     </div>
                 </div>
             </div>
-        </div>
     );
 }
