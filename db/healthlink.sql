@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 28, 2023 at 07:23 PM
+-- Generation Time: Oct 03, 2023 at 05:56 AM
 -- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- PHP Version: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -60,17 +60,9 @@ CREATE TABLE `appointment` (
 --
 
 INSERT INTO `appointment` (`id`, `user_id`, `doctor_id`, `time`, `date`) VALUES
-('2b0de98a-53c9-4df3-84df-787c1bb081cc', NULL, '2', '19:35:00', '2023-08-30'),
-('456c888a-bc2e-4768-a254-6e09b12bb32f', '8f3bad717ebc914904f05ccf952e254e89a87a546fdb9e4dea7e75d6a8e8f1e9', '2', '23:28:00', '2023-08-24'),
-('ab9c5c46-e03d-4d43-a0d8-79f301cf7649', NULL, '1', '19:35:00', '2023-09-07'),
-('aba423f7-5d52-485d-bd91-cbb9b893b9fe', NULL, '1', '07:36:00', '2023-09-07'),
-('e143bc5a-ac5a-4e72-b3d2-de92199f3291', NULL, '1', '08:38:00', '2023-09-06'),
-('9207398e-0274-490d-801a-f79ac35bb1aa', '8f3bad717ebc914904f05ccf952e254e89a87a546fdb9e4dea7e75d6a8e8f1e9', '2', '14:22:00', '2023-07-30'),
-('13235454-148c-4f68-af5f-4865ccec81cb', '8f3bad717ebc914904f05ccf952e254e89a87a546fdb9e4dea7e75d6a8e8f1e9', '1', '00:00:00', '0000-00-00'),
-('95617a75-f6c8-4ce5-bede-49c0f61dac4c', '8f3bad717ebc914904f05ccf952e254e89a87a546fdb9e4dea7e75d6a8e8f1e9', '2', '09:09:00', '2023-09-12'),
-('7fa843cc-6789-4ea5-9bd2-7924f188a246', '8f3bad717ebc914904f05ccf952e254e89a87a546fdb9e4dea7e75d6a8e8f1e9', '1', '18:05:00', '2023-09-14'),
-('3bf91cb3-1d8e-4767-ab53-7913e6354b5b', '8f3bad717ebc914904f05ccf952e254e89a87a546fdb9e4dea7e75d6a8e8f1e9', '1', '18:08:00', '2023-09-22'),
-('c17741b7-ccaa-458a-a341-4bf14c3d2d2c', '8f3bad717ebc914904f05ccf952e254e89a87a546fdb9e4dea7e75d6a8e8f1e9', '1', '18:08:00', '2023-09-18');
+('2257145b-9d08-42e7-bdd2-a20483f33c28', '55d7cd00de4b1e748eb3bda6e633e915e79340506ccba0e04011bd269c98bf0d', '55662b21-8689-40d2-9bda-28ace73212ae', '12:18:00', '2023-09-13'),
+('a96fc657-97ad-403e-9ba3-4f8072f14864', '55d7cd00de4b1e748eb3bda6e633e915e79340506ccba0e04011bd269c98bf0d', 'eef5d1a7-9ac4-4033-a11e-6fa3afc1a4d6', '22:19:00', '2023-09-22'),
+('8a519d6b-25e9-4a0f-a88b-17ab9d58c306', '55d7cd00de4b1e748eb3bda6e633e915e79340506ccba0e04011bd269c98bf0d', 'eef5d1a7-9ac4-4033-a11e-6fa3afc1a4d6', '01:19:00', '2023-09-13');
 
 -- --------------------------------------------------------
 
@@ -94,11 +86,39 @@ CREATE TABLE `doctor` (
 --
 
 INSERT INTO `doctor` (`id`, `name`, `email`, `phone`, `place`, `password`, `specialize`, `role`) VALUES
-('1', 'kavindu', 'kavindu@gmail.com', '0761747447', 'katubadda', '12', 'Common', 'doctor'),
-('2', 'damsith', 'damsith@gmail.com', NULL, 'mawanella', '12', 'Common', 'doctor'),
-('64b974fe-2c7f-4cb5-a4a9-279a1930742f', 'bandara', 'bandara2@gmail.com', '07712345567', 'kandy', '12', 'Common', 'doctor'),
-('a9c4bf72-bd4f-40e1-bc3d-1c6e27b2a6bf', 'doctor', 'doctor@gmail.com', '+94761747447', 'kandy', '12', 'Brain-Cerebellum', 'doctor'),
+('55662b21-8689-40d2-9bda-28ace73212ae', 'Chathura Jayasinghe', 'chathurajayasinghe@gmail.com', '94704934655', 'Panadura', '12', 'Common', 'doctor'),
+('863d6da6-9c48-4bcc-9608-2d2928dcedff', 'Pasindu Nimsara', 'Numsara@gmail.com', '94704934655', 'Asmadala', '12', 'Ophthalmologist', 'doctor'),
+('ca039564-1f92-47e3-8130-916863b8c32b', 'Sachira Munasinghe', 'sachiramunasinghe@gmail.com', '94704934655', 'kandy', '12', 'Neurologist', 'doctor'),
+('e22fa581-5aa9-4ca1-980b-e6d86b0676e4', 'Pasindu Kulasinghe', 'pasindu@gmail.com', '94704934655', 'Mawanella', '12', 'Psychiatrist', 'doctor'),
+('eef5d1a7-9ac4-4033-a11e-6fa3afc1a4d6', 'doctor', 'doctor@gmail.com', '94704934655', 'kandy', '12', 'Neurologist', 'doctor'),
+('f4f53f61-02dd-4e17-a33a-4eb7a11915ae', 'Malitha Prabhashana', 'malithaprabhashana@gmail.com', '94704934655', 'kegalle', '12', 'Neurologist', 'doctor'),
 ('fbc30083-70b5-4f39-ba41-f2b3453775a8', 'kaivndu damsith', 'thilakarathnakdb.21@uom.lk', '+94761747447', 'kandy', '12', 'Common', 'doctor');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reports`
+--
+
+CREATE TABLE `reports` (
+  `id` int(20) NOT NULL,
+  `user_id` varchar(200) NOT NULL,
+  `doctor_id` varchar(200) NOT NULL,
+  `appointment_id` varchar(200) NOT NULL,
+  `age` varchar(30) NOT NULL,
+  `disease` varchar(100) NOT NULL,
+  `condition_level` varchar(100) NOT NULL,
+  `description` varchar(500) NOT NULL,
+  `time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `reports`
+--
+
+INSERT INTO `reports` (`id`, `user_id`, `doctor_id`, `appointment_id`, `age`, `disease`, `condition_level`, `description`, `time`) VALUES
+(1, '55d7cd00de4b1e748eb3bda6e633e915e79340506ccba0e04011bd269c98bf0d', 'eef5d1a7-9ac4-4033-a11e-6fa3afc1a4d6', 'a96fc657-97ad-403e-9ba3-4f8072f14864', '22', 'Fever', 'medium', 'description test', '2023-09-30 05:31:35'),
+(2, '55d7cd00de4b1e748eb3bda6e633e915e79340506ccba0e04011bd269c98bf0d', 'eef5d1a7-9ac4-4033-a11e-6fa3afc1a4d6', 'a96fc657-97ad-403e-9ba3-4f8072f14864', '22', 'Fever', 'medium', 'description test', '2023-09-30 05:31:35');
 
 -- --------------------------------------------------------
 
@@ -126,6 +146,7 @@ INSERT INTO `user` (`id`, `name`, `email`, `phone`, `address`, `birth_date`, `ro
 ('270e5049c7b0cc36d592b619770ea70cb93230aa4a0f162ee571bb8202d8b238', 'kaivndu damsith', '5thilakaratsddhnakdb.21@uom.lk', '+94761747447', 'Mahawaththa ,lewke ,galathara', '2023-09-08', 'user', '$2a$10$bFcGEv4wbGNwF7fodsCi0O11EAUUXsrlblqfoXk7yO4SEaJ3C2vaK'),
 ('4cfbd6dbfd9548d16aac451fa29675f81e3d86916f389e7ff11311569dc6c392', 'kaivndu damsith', '3thilakaratsddhnakdb.21@uom.lk', '+94761747447', 'Mahawaththa ,lewke ,galathara', '2023-09-08', 'user', '$2a$10$XGDRk7PywH8T7paZPrYo9eVoVzp3MEBchWWpLH30S0GfmH.k0Xs1K'),
 ('5496111dc6ce59c58a7a3392be6fe871cb01385b55775697cf24625cd089379b', 'kaivndu damsith', '6thilakarathnakdb.21@uom.lk', '+94761747447', 'Mahawaththa ,lewke ,galathara', '2023-08-30', 'user', '$2a$10$UmCPZmcwJpF4wvE6zn/9..1yJqCgH8EC7yzqZlerqP1YTn7sjfVby'),
+('55d7cd00de4b1e748eb3bda6e633e915e79340506ccba0e04011bd269c98bf0d', 'Devinda Nimesh', 'devindanimesh@gmail.com', '0704934655', 'Mahawaththa ,lewke ,galathara', '2003-06-18', 'user', '$2a$10$SAMkSHEzLgG0EdTdpRnv1.Ft2YOscqUi7roNHZqoCoMLMrE..PL56'),
 ('59b9b278e8f17d8fb4c4b2e343f9800dcae7990c2e4930c79e25499fbbd6ab73', 'kaivndu damsith', '6thilakaratsddhnakdb.21@uom.lk', '+94761747447', 'Mahawaththa ,lewke ,galathara', '2023-09-08', 'user', '$2a$10$m1aMLjdrA96Ay5tA3MKoTuEu3JM8j9feLCVLN5imd2dmTvvWLaCN.'),
 ('6cd4945332846e74b11d36f6618568548fcb6cd146683428f505c96791cde248', 'kaivndu damsith', '7thilakaratsddhnakdb.21@uom.lk', '+94761747447', 'Mahawaththa ,lewke ,galathara', '2023-09-08', 'user', '$2a$10$poEAKc7VUricq2YObfyiPuaAXwRtksgWOa1VKpgaAK/GCGccPBZsy'),
 ('85e7af252d7b86013bb5b43de0accc0ec9f7494140c2a3491ed18812957280ed', 'kaivndu damsith', '2thilakaratsddhnakdb.21@uom.lk', '+94761747447', 'Mahawaththa ,lewke ,galathara', '2023-09-08', 'user', '$2a$10$x.CwMMRdywqm21/Bjs4RCOVGAc50/id02lyY9CQ9eSfLj0gl4jomm'),
@@ -150,10 +171,26 @@ ALTER TABLE `doctor`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `reports`
+--
+ALTER TABLE `reports`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `reports`
+--
+ALTER TABLE `reports`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

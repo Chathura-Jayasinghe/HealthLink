@@ -122,6 +122,7 @@ function addReport(req, res) {
   
     dbPool.query(query, [user_id], (error, results) => {
       if (error) {
+        console.log(error)
         return res.status(500).json({ message: 'An error occurred' });
       } else {
         return res.status(200).json({ reports: results });
