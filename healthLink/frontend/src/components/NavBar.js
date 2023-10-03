@@ -101,7 +101,7 @@ function NavBar(props) {
         }
 
         try {
-            axios.post('http://20.194.199.67:3001/user/sign-up', signInFormData).then(response => {
+            axios.post('http://localhost:3001/user/sign-up', signInFormData).then(response => {
 
                 const responseStatusReg = response.status;
                 if (responseStatusReg === 200 || responseStatusReg === 201) {
@@ -112,7 +112,7 @@ function NavBar(props) {
 
 
 
-                    axios.post('http://20.194.199.67:3001/user/login', registeredUser).then(response2 => {
+                    axios.post('http://localhost:3001/user/login', registeredUser).then(response2 => {
                         const responseStatusLog = response2.status;
                         if (responseStatusLog === 200 || responseStatusLog === 201) {
 
@@ -175,7 +175,7 @@ function NavBar(props) {
             }
 
 
-            axios.post('http://20.194.199.67:3001/user/login', loginFormData).then(response => {
+            axios.post('http://localhost:3001/user/login', loginFormData).then(response => {
                 const responseStatus = response.status;
 
                 if (responseStatus === 200 | responseStatus === 201) {

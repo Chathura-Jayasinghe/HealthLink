@@ -28,7 +28,7 @@ export default function DoctorDashboard() {
 
     useEffect(() => {
          if (doctor_id) {
-            axios.post('http://20.194.199.67:3001/appointment/patients', {doctor_id:doctor_id}).then(response => {
+            axios.post('http://localhost:3001/appointment/patients', {doctor_id:doctor_id}).then(response => {
                 const responseStatus = response.status;
 
                 if (responseStatus === 200 | responseStatus === 201) {
