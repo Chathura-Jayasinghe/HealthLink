@@ -4,6 +4,10 @@
 
 HealthLink is a web-based application designed to improve access to skilled doctors, expedite diagnosis and treatment of tumors, and facilitate second opinions for patients. The application utilizes a machine learning model to identify tumors in MRI scans with high accuracy and offers a user-friendly interface for both patients and healthcare professionals.
 
+![file_2024-09-24_17 00 49](https://github.com/user-attachments/assets/1a361471-7bde-48fc-84b5-c19f1f4f8d30)
+![file_2024-09-24_17 01 54](https://github.com/user-attachments/assets/d8659c01-cdfd-4239-810f-93d84321bac0)
+![file_2024-09-26_05 20 34](https://github.com/user-attachments/assets/26e8e7ae-f013-4296-ae20-f9cd9b4b7458)
+
 ## Features
 
 - **User Levels**: Tailored functionalities for patients and doctors.
@@ -34,7 +38,7 @@ Contributions are welcome! If you'd like to contribute, please fork the reposito
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
-
+![file_2024-09-24_17 04 23](https://github.com/user-attachments/assets/ec1131ed-a8a5-4dab-b00a-976222190711)
 ## Installation
 
 To set up the project locally, follow these steps:
@@ -54,3 +58,4 @@ To set up the project locally, follow these steps:
   ```bash
    python app.py
 5. **Access the Application**: Open your web browser and go to http://localhost:5000
+
